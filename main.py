@@ -32,7 +32,9 @@ actions={
         "birthday gift": 30
     }
 
-command = input("Select a command: check_balance, work, do_action, exit")
-if command != "exit":
-    if command == "check_balance":
+command = input("Select a command: /check_balance, /work, /do_action, /exit")
+if command != "/exit":
+    if command == "/check_balance":
         startMoney = check_balance(startMoney)
+    elif command == "/work":
+        startMoney = work(startMoney)
