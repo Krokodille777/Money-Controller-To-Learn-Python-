@@ -65,22 +65,26 @@ def do_action(balance, action):
 
 startMoney = 100
 actions={
-        "buy groceries" : 50,
-        "visit a doctor": 25,
-        "buy a new outfit": 200,
-        "buy a circus ticket": 50,
-        "rent an apartment": 500,
-        "buy a car": 20000,
+        "buy_groceries" : 50,
+        "visit_a_doctor": 25,
+        "buy_a_new_outfit": 200,
+        "buy_a_circus_ticket": 50,
+        "rent_an_apartment": 500,
+        "buy_a_car": 20000,
         "wedding":  10000,
         "birthday gift": 30
     }
 while True:
-    command = input("Select a command: /check_balance, /work, /do_action, /exit \n")
+    command = input("Select a command: /check_balance, /work, /do_action, /show_actions, /exit \n")
     if command != "/exit":
         if command == "/check_balance":
             startMoney = check_balance(startMoney)
         elif command == "/work":
             startMoney = work(startMoney)
+        elif command == "/show_actions":
+            print("Available actions:")
+            for action in actions.keys():
+                print(f" - {action.replace('_', ' ')}")
         elif command == "/do_action":
             action = input("Enter the action you want to do: ")
             startMoney = do_action(startMoney, action)
