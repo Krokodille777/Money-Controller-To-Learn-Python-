@@ -74,21 +74,21 @@ actions={
         "wedding":  10000,
         "birthday gift": 30
     }
+while True:
+    command = input("Select a command: /check_balance, /work, /do_action, /exit \n")
+    if command != "/exit":
+        if command == "/check_balance":
+            startMoney = check_balance(startMoney)
+        elif command == "/work":
+            startMoney = work(startMoney)
+        elif command == "/do_action":
+            action = input("Enter the action you want to do: ")
+            startMoney = do_action(startMoney, action)
 
-command = input("Select a command: /check_balance, /work, /do_action, /exit \n")
-while command != "/exit":
-    if command == "/check_balance":
-        startMoney = check_balance(startMoney)
-    elif command == "/work":
-        startMoney = work(startMoney)
-    elif command == "/do_action":
-        action = input("Enter the action you want to do: ")
-        startMoney = do_action(startMoney, action)
-
-if command == "/exit":
-    print("Exiting the game. Are you sure? 😢")
-    confirmation = input("Type 'yes' to confirm: ")
-    if confirmation == "yes":
-        print("It was a pleasure playing with you! 😊")
-    else:
-        print("Don't think you can escape that easily, sugar! 😏")
+    if command == "/exit":
+        print("Exiting the game. Are you sure? 😢")
+        confirmation = input("Type 'yes' to confirm: ")
+        if confirmation == "yes":
+            print("It was a pleasure playing with you! 😊")
+        else:
+            print("Don't think you can escape that easily, sugar! 😏")
