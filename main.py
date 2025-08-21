@@ -26,4 +26,8 @@ def main():
         "house":1000,
         "diamond":1000000
     }
-    print("Select a command: buy_item, sell_item, check_balance, work, inventory, exit")
+
+    command = input("Select a command: buy_item, sell_item, check_balance, work, inventory, exit")
+    if command != "exit":
+        if command == "buy_item":
+            myInventory, startMoney = buy_item(items, myInventory, startMoney)
