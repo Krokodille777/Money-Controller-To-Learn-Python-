@@ -9,6 +9,8 @@ def work(balance):
     print("Working...")
     time.sleep(1)
 
+
+
     if work_type == "full_time":
         balance += 500
         print("You worked full time and earned 500 dollars.")
@@ -19,7 +21,48 @@ def work(balance):
         print("Invalid work type.")
     return balance
 
-myInventory = []
+def do_action(balance, action):
+    cost = actions.get(action, None)
+    if cost is None:
+        print ("Invalid action")
+        return balance
+    if balance < cost:
+        print ("Insufficient funds")
+        return balance
+    
+    if action == "buy_groceries":
+        print ("You bought groceries. You saved yourself for a couple of days. Enjoy!! 🥦")
+        balance -= cost
+        return balance
+    if action == "visit_a_doctor":
+        print ("You visited a doctor. He found out you have ebola, just kidding! 😂")
+        balance -= cost
+        return balance
+    if action == "buy_a_new_outfit":
+        print ("You bought a new outfit. Now all your friends will be jealous! 👗")
+        balance -= cost
+        return balance
+    if action == "buy_a_circus_ticket":
+        print ("You bought a circus ticket. Hope you aren't scared of clowns! 🤡")
+        balance -= cost
+        return balance
+    if action == "rent_an_apartment":
+        print ("You rented an apartment. Feel comfortable in your small vault until the next paycheck! 🏠")
+        balance -= cost
+        return balance
+    if action == "buy_a_car":
+        print ("You bought a car. Remember: no drunk driving! 🚗")
+        balance -= cost
+        return balance
+    if action == "wedding":
+        print ("The sweetest day of your life! Hope your bride feels the same way! 💍")
+        balance -= cost
+        return balance
+    if action == "birthday_gift":
+        print ("You bought a birthday gift. You're so thoughtful! But who is the lucky recipient? 🎁")
+        balance -= cost
+        return balance
+
 startMoney = 100
 actions={
         "buy groceries" : 50,
@@ -32,9 +75,20 @@ actions={
         "birthday gift": 30
     }
 
-command = input("Select a command: /check_balance, /work, /do_action, /exit")
-if command != "/exit":
+command = input("Select a command: /check_balance, /work, /do_action, /exit \n")
+while command != "/exit":
     if command == "/check_balance":
         startMoney = check_balance(startMoney)
     elif command == "/work":
         startMoney = work(startMoney)
+    elif command == "/do_action":
+        action = input("Enter the action you want to do: ")
+        startMoney = do_action(startMoney, action)
+
+if command == "/exit":
+    print("Exiting the game. Are you sure? 😢")
+    confirmation = input("Type 'yes' to confirm: ")
+    if confirmation == "yes":
+        print("It was a pleasure playing with you! 😊")
+    else:
+        print("Don't think you can escape that easily, sugar! 😏")
