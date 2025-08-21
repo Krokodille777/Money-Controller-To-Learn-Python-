@@ -62,7 +62,13 @@ def do_action(balance, action):
         print ("You bought a birthday gift. You're so thoughtful! But who is the lucky recipient? 🎁")
         balance -= cost
         return balance
-
+def exit():
+    print("Exiting the game. Are you sure? 😢")
+    confirmation = input("Type 'yes' to confirm: ")
+    if confirmation == "yes":
+            print("It was a pleasure playing with you! 😊")
+    else:
+            print("Don't think you can escape that easily, sugar! 😏")
 startMoney = 100
 actions={
         "buy_groceries" : 50,
@@ -89,10 +95,8 @@ while True:
             action = input("Enter the action you want to do: ")
             startMoney = do_action(startMoney, action)
 
+
+    
     if command == "/exit":
-        print("Exiting the game. Are you sure? 😢")
-        confirmation = input("Type 'yes' to confirm: ")
-        if confirmation == "yes":
-            print("It was a pleasure playing with you! 😊")
-        else:
-            print("Don't think you can escape that easily, sugar! 😏")
+        exit()
+        break
